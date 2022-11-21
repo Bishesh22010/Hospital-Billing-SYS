@@ -1,0 +1,220 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+
+float sum1,sum2,sum3,sum4,sum5;
+
+int main(void){
+
+   
+
+printf("*********************************************************************************\n");
+
+printf("*********************************************************************************\n");
+
+printf("**									       **\n");
+
+printf("**			WELCOME TO THE HOSPITAL BILLING SYSTEM		       **\n");
+
+printf("**									       **\n");
+
+printf("*********************************************************************************\n");
+
+printf("*********************************************************************************\n");
+
+
+
+
+void Malaria()
+{
+
+printf("\nDISEASE       = MALARIA");
+printf("\nMEDICATION 	= DOXYCYCLINE TABLETS,\n\t\t  MEFLOQUINE TABLETS");
+printf("\nSYMPTOMS  	= Fever,\n\t\t  shaking chills,\n\t\t  headache,\n\t\t  tiredness and fatigue");
+
+}
+
+
+void MBill()
+{
+	
+
+	float a,b,c;
+	printf("\n========================\n");
+	printf("\nDoxycycline 		:");
+    scanf("%f",&a);
+	printf("\nMEFLOQUINE 		:");
+    scanf("%f",&b);
+    printf("\nMedical Costs 		:");
+    scanf("%f",&c);
+    sum1 = a+b+c;
+  //  printf("\nTOTAL 		:%.2f",sum1);
+
+
+}
+
+void Dengue()
+{
+    
+	printf("\nDISEASE 		= DENGUE");
+	printf("\nMEDICATION      	= PARACETAMOL,\n\t\t\t  (SEVERE CASES = Platelet Transfer req..)");
+	printf("\nSYMPTOMS 		= High Fever,\n\t\t\t  headache,\n\t\t\t  Rash and Muscle Joint Pain\n\n");
+}
+
+void DBill(char severity)
+{
+	float a,b,c,d;
+    if(severity == 'N'){
+	printf("\n===========================\n");
+		printf("\nPARACETAMOL 		:");
+		scanf("%f",&a);
+		printf("\nMedical Test 		:");
+		scanf("%f",&b);
+		printf("\nMedication cost 	:");
+		scanf("%f",&c);
+		sum2 = a+b+c;
+
+	}
+	else if(severity == 'Y')
+	{
+		printf("\n=========================\n");
+		printf("\nPARACETAMOL 		:");
+		scanf("%f",&a);
+		printf("\nMedical Test 		:");
+		scanf("%f",&b);
+		printf("\nMedication cost 	:");
+		scanf("%f",&c);
+		printf("\nPlatelete Transfer	:");
+		scanf("%f",&d);
+		sum3 = a+b+c+d;
+
+	}
+	else
+	{
+		printf("\n Not valid");
+	
+	}
+}
+void cholera()
+{
+
+	printf("\nDISEASE                       = CHOLERA");
+	printf("\nMEDICATION                    = AZITHROMYCIN,\n\t\t\t\tCIPROFLOXACIN");
+	printf("\nSUPPORTIVE MEDICATION         = IV Fluids and Oral Rehydration Therapy");
+	printf("\nSYMPTOMS                      = Diarrhoea and dehydration,\n\t\t\t\tseizures,\n\t\t\t\tabdominal pain,\n\t\t\t\tVomitting");
+}
+void CBill()
+{
+	
+
+	float a,b,c,d,e;
+	printf("\n======================================\n");
+	printf("\nAzithromycin			:");
+    scanf("%f",&a);
+	printf("\nCiproFlaxacin 			:");
+    scanf("%f",&b);
+    printf("\nMedical Tests 			:");
+    scanf("%f",&c);
+	printf("\nOral Fluids  			:");
+    scanf("%f",&d);
+	printf("\nMedical Costs 			:");
+	scanf("%f",&e);
+
+    sum4 = a+b+c+d+e;
+}
+void FBill()
+{
+	
+
+	float a,b,c;
+	printf("\n========================\n");
+	printf("\nANTIBIOTICS      :");
+    scanf("%f",&a);
+	printf("\nANTIPARASITIC TABLETS      :");
+    scanf("%f",&b);
+    printf("\nMedical Costs      :");
+    scanf("%f",&c);
+    sum5 = a+b+c;
+}
+void Filiariasis()
+{
+	printf("\nDISEASE      = FILIARIASIS");
+	printf("\nMEDICATION   = ANTIBIOTICS,ANTIPARASITIC TABLETS ");
+	printf("\nSYMPTOMS     = The symptoms are Swollen Lymph Nodes in the legs,arms and gentailia ");
+}
+char *name[20],*number[10],e;
+int a;
+char dis,severity,pay;
+
+
+printf("\nENTER YOUR NAME HERE : ");
+scanf("%s",&name);
+
+printf("\nEnter your Number    : ");
+scanf(" %s",&number);
+
+
+printf("\n\nPress : M for Malaria\n\tD For Dengue\n\tC For Cholera\n\tF for Filliariasis  :");
+scanf(" \n%c",&dis);
+
+
+switch(dis)
+{
+
+case 'M':
+	
+	Malaria();
+	MBill();
+	break;
+
+case 'D':
+	printf("\nSeverity: ");
+	scanf(" %c",&severity);
+	
+	Dengue();
+	DBill(severity);
+	break;
+
+case 'C':
+	cholera();
+	CBill();
+	break;
+
+case 'F':
+	Filiariasis();
+	FBill();
+	break;
+
+default:
+    printf("\nChoice invalid");
+    break;
+}
+      
+printf("\n\n*************************");
+printf("\n***  PAYMENT GATEWAY  ***");
+printf("\n*************************");
+printf("\n\nYOUR NAME IS : %s\n",name);
+printf("\nYOUR CONTACT NO. is : %s\n\n",number);
+	if(dis=='M')
+	{
+		printf("TOTAL:\t%.2f",sum1);
+	}
+	else if(severity=='N'){
+		printf("TOTAL:\t%.2f",sum2);
+	}
+	else if(severity=='Y'){
+		printf("TOTAL:\t%.2f",sum3);
+	}
+	else if(dis=='F')
+	{
+	printf("TOTAL:\t%.2f",sum5);
+	}
+	else if(dis=='C')
+	{
+	printf("TOTAL:\t%.2f",sum4);
+	}
+printf("\n\nThanks for visit");
+getch();
+return 0; 
+}
